@@ -26,12 +26,12 @@ function AppContent() {
 
       <div className="flex-1 w-full">
         <Routes>
-          <Route path="/" element={<Navigate to="/login" replace />} />
+          <Route path="/" element={<Navigate to="/signup" replace />} />
           <Route path="/signup" element={<SignupPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/experts" element={<ExpertsPage />} />
           <Route path="/ai-insights" element={<AIInsightsPage />} />
-          <Route path="*" element={<Navigate to="/login" replace />} />
+          <Route path="*" element={<Navigate to="/signup" replace />} />
         </Routes>
       </div>
     </div>
