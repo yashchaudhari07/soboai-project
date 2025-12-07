@@ -18,6 +18,8 @@ function AppContent() {
           {/* Default page */}
           <Route path="/" element={<Navigate to="/signup" replace />} />
 
+           <Route path="/" element={<SignupPage />} />
+
           {/* Signup */}
           <Route path="/signup" element={<SignupPage />} />
 
