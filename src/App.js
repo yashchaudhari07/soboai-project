@@ -9,8 +9,9 @@ import {
 import Slidebar from "./components/Slidebar";
 import SignupPage from "./Pages/Signup/SignupPage";
 import LoginPage from "./Pages/Login/LoginPage";
-import AIInsightsPage from "./Pages/aiinsight/AIInsightsPage";
 import ExpertsPage from "./Pages/Expertspage/ExpertsPage";
+import AIInsightsPage from "./Pages/aiinsight/AIInsightsPage";
+
 
 
 function AppContent() {
@@ -20,18 +21,20 @@ function AppContent() {
   const shouldHideSidebar = hideSidebarRoutes.includes(location.pathname);
 
   return (
-    <>
+    <div className="flex min-h-screen">
       {!shouldHideSidebar && <Slidebar />}
 
-      <Routes>
-        <Route path="/" element={<SignupPage />} />
-        <Route path="/signup" element={<SignupPage />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/experts" element={<ExpertsPage />} />
-        <Route path="/ai-insights" element={<AIInsightsPage />} />
-        <Route path="*" element={<Navigate to="/" replace />} />
-      </Routes>
-    </>
+      <div className="flex-1 w-full">
+        <Routes>
+          <Route path="/" element={<Navigate to="/login" replace />} />
+          <Route path="/signup" element={<SignupPage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/experts" element={<ExpertsPage />} />
+          <Route path="/ai-insights" element={<AIInsightsPage />} />
+          <Route path="*" element={<Navigate to="/login" replace />} />
+        </Routes>
+      </div>
+    </div>
   );
 }
 

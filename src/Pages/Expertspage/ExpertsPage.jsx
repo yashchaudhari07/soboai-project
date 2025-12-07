@@ -42,11 +42,9 @@ export default function ExpertsPage() {
   });
 
   return (
-    <div className="flex">
-      {/* Sidebar handled by parent layout */}
-      <div className="flex-1 p-6 bg-[#0F0F0F] min-h-screen">
-        {/* Banner */}
-        <div className="bg-gradient-to-r from-blue-600 to-blue-400 text-white p-8 rounded-lg mb-6">
+    <div className="w-full p-6 bg-[#0F0F0F] min-h-screen">
+      {/* Banner */}
+      <div className="bg-gradient-to-r from-blue-600 to-blue-400 text-white p-8 rounded-lg mb-6">
           <h1 className="text-3xl font-semibold mb-2">Find your Expert</h1>
           <p className="text-gray-100 mb-4">
             Share your challenge, and we’ll connect you with the right expert to quickly assess the situation and deliver the outcomes your business needs.
@@ -125,6 +123,5 @@ export default function ExpertsPage() {
           )}
         </div>
       </div>
-    </div>
-  );
-}
+    );
+  }
