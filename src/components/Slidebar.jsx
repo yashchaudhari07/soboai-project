@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { User, Settings, LogOut, BarChart3, Zap, ChevronLeft, ChevronRight } from "lucide-react";
 
-export default function Sidebar() {
+export default function Slidebar() {
   const [isMinimized, setIsMinimized] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
 
