@@ -1,41 +1,48 @@
-import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from "react-router-dom";
+import React from "react";
+import { HashRouter as Router, Routes, Route, Navigate, useLocation } from "react-router-dom";
+
+/* ✅ IMPORT YOUR PAGES */
 import SignupPage from "./Pages/Signup/SignupPage";
 import LoginPage from "./Pages/Login/LoginPage";
-import ExpertsPages from "./Pages/Expertspage/ExpertsPage";
+import AIInsights from "./Pages/aiinsight/AIInsightsPage";
 import Slidebar from "./components/Slidebar";
-import AIInsightsPage from "./Pages/aiinsight/AIInsightsPage";
+import ExpertsPage from "./Pages/Expertspage/ExpertsPage";
+/* ✅ OPTIONAL: Sidebar */
 
+/* ✅ Layout Logic */
 function AppContent() {
   const location = useLocation();
-  const hideSlidebarRoutes = ["/signup", "/login"];
-  const showSidebar = !hideSlidebarRoutes.includes(location.pathname);
+
+  // ✅ Sidebar फक्त signup/login वर hide होईल
+  const hideSidebarRoutes = ["/signup", "/login", "/", ""];
+  const shouldHideSidebar = hideSidebarRoutes.includes(location.pathname);
 
   return (
-    <div className='flex flex-col md:flex-row min-h-screen'>
-      {showSidebar && <Slidebar />}
-      <div className="flex-1 w-full md:w-auto">
+    <div className="flex flex-col md:flex-row min-h-screen bg-[#0F0F0F]">
+      {!shouldHideSidebar && <Slidebar />}
+
+      <div className="flex-1 w-full">
         <Routes>
-          {/* Default page */}
-          <Route path="/" element={<Navigate to="/signup" replace />} />
+          {/* ✅ DEFAULT ROOT = LOGIN */}
+          <Route path="/" element={<LoginPage />} />
 
-           <Route path="/" element={<SignupPage />} />
-
-          {/* Signup */}
+          {/* ✅ AUTH ROUTES */}
           <Route path="/signup" element={<SignupPage />} />
-
-          {/* Login */}
           <Route path="/login" element={<LoginPage />} />
 
-          <Route path="/experts" element={<ExpertsPages />} />
+          {/* ✅ DASHBOARD ROUTES */}
+          <Route path="/experts" element={<ExpertsPage />} />
+          <Route path="/ai-insights" element={<AIInsights />} />
 
-          {/* Fallback */}
-          <Route path="/ai-insights" element={<AIInsightsPage/>} />
+          {/* ✅ ANY WRONG URL → LOGIN */}
+          <Route path="*" element={<Navigate to="/login" replace />} />
         </Routes>
       </div>
     </div>
   );
 }
 
+/* ✅ ✅ ✅ MAIN APP */
 export default function App() {
   return (
     <Router>
