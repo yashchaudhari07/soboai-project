@@ -178,7 +178,7 @@ export default function SignupPage() {
         {/* Footer Link */}
         <p className="text-center text-gray-400 text-sm mt-6">
           Already have an account?{" "}
-          <a href="/login" className="text-[#7B4CFF] hover:underline">
+          <a href="/login" className="text-[#7B4CFF] hover:underline" onclick={() => navigate("/login")}>
             Log in
           </a>
         </p>
